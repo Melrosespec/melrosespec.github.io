@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-blockbyte-bs-uid="67392" style="font-size: 100px;">
+	<head>
+		<meta charset="utf-8">
+		<link rel="icon" href="favicon.ico.css" >
+		<title>易知独秀</title>
+		<link rel="stylesheet" href="./static/chunk-vendors.30718328.css" />
+		<link rel="stylesheet" href="./static/first.css" />
+		<script type="text/javascript" src="./static/jquery-3.3.1.min.js"></script>
+	</head>
+	<body style="font-size: 5px;">
+		<div id="app">
+			<div data-v-69c87bfd="" class="layout">
+				<div data-v-69c87bfd="" class="cube-scroll-wrapper">
+					<div class="cube-scroll-content" style="transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); transition-duration: 20ms; transform: translate(0px, 0px) scale(1) translateZ(0px);">
+						<div class="cube-scroll-list-wrapper" style="min-height: 0px;">
+							<div data-v-d4d5c34c="" data-v-69c87bfd="" class="affairs-detail">
+								<div data-v-d4d5c34c="" class="user-info">
+									<div data-v-d4d5c34c="" class="header bg-purple">请假条-已通过 </div>
+									<div data-v-d4d5c34c="" class="body">
+										<p data-v-d4d5c34c=""><span data-v-d4d5c34c="">姓名：</span><span data-v-d4d5c34c="" id="username"></span></p>
+										<p data-v-d4d5c34c=""><span data-v-d4d5c34c="">学院：</span><span data-v-d4d5c34c="" id = "xueyuan"></span></p>
+										<p data-v-d4d5c34c=""><span data-v-d4d5c34c="">专业：</span><span data-v-d4d5c34c="" id = "zhuanye"></span></p>
+										<p data-v-d4d5c34c=""><span data-v-d4d5c34c="">开始时间：</span><span data-v-d4d5c34c="" id = "time1"></span></p>
+										<p data-v-d4d5c34c=""><span data-v-d4d5c34c="">结束时间：</span><span data-v-d4d5c34c="" id = "time2"></span></p>
+										<p data-v-d4d5c34c=""><span data-v-d4d5c34c="">请假理由：</span><span data-v-d4d5c34c="" id = "liyou"></span></p>
+										<p data-v-d4d5c34c=""><span data-v-d4d5c34c="">去向地址：</span><span data-v-d4d5c34c="" id = "quxiang"></span></p>
+									</div>
+								</div>
+								<div data-v-d4d5c34c="" class="operate">
+									<button data-v-d4d5c34c="" type="button" icon="" _type="button" class="dx-btn dx-btn_primary" onclick="up()">
+										<!---->返校销假
+										<form form action="/index/index/goback" name="infor" method="get" id = "infor">
+											<input type="text" name = "infro" id = "infro" hidden="hidden"/>
+											<input type="submit" id = "sub" hidden="hidden"/>
+										</form>
+									</button>
+								</div>
+								<div data-v-d4d5c34c="" class="spinner">
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+								</div>
+								<div data-v-d4d5c34c="" class="flow"></div>
+							</div>
+						</div>
+						<!---->
+					</div>
+					<!---->
+				</div>
+			</div>
+		</div>
+<div id = 'cube' class="cube-popup cube-toast" style="z-index: 900; display: block;"><div class="cube-popup-mask"></div><div class="cube-popup-container cube-popup-center"><div class="cube-popup-content"><!----><div class="cube-loading"><span class="cube-loading-spinners"><i class="cube-loading-spinner"></i><i class="cube-loading-spinner"></i><i class="cube-loading-spinner"></i><i class="cube-loading-spinner"></i><i class="cube-loading-spinner"></i><i class="cube-loading-spinner"></i><i class="cube-loading-spinner"></i><i class="cube-loading-spinner"></i><i class="cube-loading-spinner"></i><i class="cube-loading-spinner"></i><i class="cube-loading-spinner"></i><i class="cube-loading-spinner"></i></span></div><div class="cube-toast-tip" style="display: none;"></div></div></div>
+</div>
+	</body>
+	<script src="./static/font_1473670_uhpd7h1gg.js" ></script>
+
+	<script>
+		
+		var query = decodeURI(window.location.search);
+		
+		var list = query.split("=")[1].split("\\");
+
+		var date = new Date();
+		console.log(list)
+		document.getElementById('username').innerText = list[0].replace("-", " ");
+		document.getElementById('xueyuan').innerText = list[1];
+		document.getElementById('zhuanye').innerText = list[2];
+		document.getElementById('time1').innerText = date.toLocaleDateString() + " " + list[3].split("%")[0] + ":00";
+		document.getElementById('time2').innerText = date.toLocaleDateString() + " " + list[4].split("%")[0] + ":00";
+		document.getElementById('liyou').innerText = list[5];
+		document.getElementById('quxiang').innerText = list[6];
+		
+		$(document).ready(function(){
+			
+			setTimeout(refresh(), 5*1000)
+			
+		})
+		function up()
+		{	
+			var to = list[0] + "\\" + list[1] + "\\" + list[2] + "\\" + list[3] + "\\" + list[4] + "\\" + list[5] + "\\" + list[6];
+			document.getElementById('infro').value=to;
+			document.getElementById('infor').submit();
+		}
+
+		function refresh()
+		{
+			$("#cube").css('display', 'block')
+			setTimeout(function(){
+				$("#cube").css('display', 'none')
+			}, 5 * 100)
+			setTimeout(function(){
+				refresh()
+			}, 5 * 1000)
+			
+		}
+		
+	</script>
+	
+</html>

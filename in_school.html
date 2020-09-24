@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-blockbyte-bs-uid="67392" style="font-size: 100px;">
+	<head>
+		<meta charset="utf-8">
+		<title>请假条</title>
+		<link rel="stylesheet" href="/static/qj/chunk-vendors.30718328.css" />
+		<link rel="stylesheet" href="/static/qj/first.css" />
+	</head>
+
+	<body style="font-size: 5px;">
+		<div id="app">
+			<div data-v-69c87bfd="" class="layout">
+				<div data-v-69c87bfd="" class="cube-scroll-wrapper">
+					<div class="cube-scroll-content" style="transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); transition-duration: 20ms; transform: translate(0px, 0px) scale(1) translateZ(0px);">
+						<div class="cube-scroll-list-wrapper" style="min-height: 0px;">
+							<div data-v-d4d5c34c="" data-v-69c87bfd="" class="affairs-detail">
+								<div data-v-d4d5c34c="" class="user-info">
+									<div data-v-d4d5c34c="" class="header bg-purple">请假条-已销假 </div>
+									<div data-v-d4d5c34c="" class="body">
+										<p data-v-d4d5c34c=""><span data-v-d4d5c34c="" >姓名：</span><span data-v-d4d5c34c="" id="username"></p>
+										<p data-v-d4d5c34c=""><span data-v-d4d5c34c="" >学院：</span><span data-v-d4d5c34c="" id="xueyuan"></span></p>
+										<p data-v-d4d5c34c=""><span data-v-d4d5c34c="" >专业：</span><span data-v-d4d5c34c="" id="zhuanye"></span></p>
+										<p data-v-d4d5c34c=""><span data-v-d4d5c34c="" >开始时间：</span><span data-v-d4d5c34c="" id="time1"></span></p>
+										<p data-v-d4d5c34c=""><span data-v-d4d5c34c="" >结束时间：</span><span data-v-d4d5c34c="" id="time2"></span></p>
+										<p data-v-d4d5c34c=""><span data-v-d4d5c34c="" >请假理由：</span><span data-v-d4d5c34c="" id="liyou"></span></p>
+										<p data-v-d4d5c34c=""><span data-v-d4d5c34c="" >去向地址：</span><span data-v-d4d5c34c="" id="quxiang"></span></p>
+									</div>
+								</div>
+								<p style="font-size: 60px; font-family:'微软雅黑'; font-weight:normal; color: red;">已销假，不可出校</p>
+								<br/>
+								<br/>
+								<br/>
+								<p style="font-size: 60px; font-family:'微软雅黑'; font-weight:normal; color: red;">只可在1小时内进校</p>
+								<div data-v-d4d5c34c="" class="operate"><button data-v-d4d5c34c="" type="button" icon="" _type="button" class="dx-btn dx-btn_primary" style="background-color: #8E9397;"><!---->返回</button></div>
+								<div data-v-d4d5c34c="" class="spinner">
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+									<div data-v-d4d5c34c="" class="bg-purple"></div>
+								</div>
+								<div data-v-d4d5c34c="" class="flow"></div>
+							</div>
+						</div>
+						<!---->
+					</div>
+					<!---->
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script src="/static/qj/font_1473670_uhpd7h1gg.js"></script>
+	<script>
+		var query = decodeURI(window.location.search);
+		
+		var list = query.split("=")[1].split("\\");
+		
+		var date = new Date();
+		
+		document.getElementById('username').innerText = list[0].replace("-", " ");
+		document.getElementById('xueyuan').innerText = list[1];
+		document.getElementById('zhuanye').innerText = list[2];
+		document.getElementById('time1').innerText = date.toLocaleDateString() + " " + list[3].split("%")[0] + ":00";
+		document.getElementById('time2').innerText = date.toLocaleDateString() + " " + list[4].split("%")[0] + ":00";
+		document.getElementById('liyou').innerText = list[5];
+		document.getElementById('quxiang').innerText = list[6];
+	</script>
+</html>

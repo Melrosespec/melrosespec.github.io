@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-blockbyte-bs-uid="58708" style="font-size: 100px;">
+
+	<head>
+		<meta charset="utf-8">
+		<title>我的假条</title>
+		<link rel="stylesheet" href="./static/chunk-vendors.30718328.css" />
+		<link rel="stylesheet" href="./static/first.css" />
+		<script type="text/javascript" src="./static/jquery-3.3.1.min.js"></script>
+	</head>
+
+	<body >
+		<div id="app">
+			<div data-v-69c87bfd="" class="layout">
+				<div data-v-69c87bfd="" class="cube-scroll-wrapper">
+					<div class="cube-scroll-content" style="transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); transition-duration: 0ms; transform: translate(0px, 0px) scale(1) translateZ(0px);">
+						<div class="cube-scroll-list-wrapper" style="min-height: 0px;">
+							<div data-v-4a1a00ba="" data-v-69c87bfd="" class="affairs-leave">
+								<div data-v-4a1a00ba="" class="me-leave-header">
+									<div data-v-940cbb06="" data-v-4a1a00ba="" class="app-bar">
+										<div data-v-940cbb06="" class="app-box">
+											<a data-v-940cbb06="">
+												<svg data-v-940cbb06="" aria-hidden="true" class="icon">
+													<use data-v-940cbb06="" xlink:href="#icon-drxx81"></use>
+												</svg>
+												<p data-v-940cbb06="" class="label">请假申请</p>
+											</a>
+											<a data-v-940cbb06="" >
+												<svg data-v-940cbb06="" aria-hidden="true" class="icon">
+													<use data-v-940cbb06="" xlink:href="#icon-yezhuxuzhi"></use>
+												</svg>
+												<p data-v-940cbb06="" class="label">请假须知</p>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div data-v-4a1a00ba="" class="me-leave-body" style="">
+									<p data-v-4a1a00ba="" class="title">我的假条</p>
+									<a data-v-4a1a00ba="" class="" onclick="up()">
+										<form form action="./leave.html" name="infor" method="get" id = "infor">
+											<input type="text" name = "infro" id = "infro" hidden="hidden"/>
+											<input type="submit" id = "sub" hidden="hidden"/>
+										</form>
+										<div data-v-76c88159="" data-v-4a1a00ba="" class="card" style="background: rgba(103, 194, 58, 0.3); color: rgba(103, 194, 58, 0.9);">
+											<div data-v-76c88159="" class="header">
+												
+												<p data-v-76c88159="" class="title" id="username"></p>
+												<p data-v-76c88159="" class="sub-title">待销假</p>
+												
+												
+											</div><span data-v-76c88159="" class="badge" style="background: rgb(103, 194, 58);"></span>
+											<div data-v-76c88159="" class="body">
+												<div data-v-76c88159="" class="item">
+													<svg data-v-76c88159="" aria-hidden="true" class="icon">
+														<use data-v-76c88159="" xlink:href="#icon-Field-time"></use>
+													</svg>
+													
+													
+													<p data-v-76c88159="" class="label" id = "time"></p>
+													
+													
+												</div>
+												<div data-v-76c88159="" class="item">
+													<svg data-v-76c88159="" aria-hidden="true" class="icon">
+														<use data-v-76c88159="" xlink:href="#icon-location"></use>
+													</svg>
+													
+													
+													<p data-v-76c88159="" class="label" id = "location"></p>
+													
+													
+												</div>
+											</div>
+											<div data-v-76c88159="" class="footer"></div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+						<!---->
+					</div>
+					<!---->
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<script src="./static/font_1473670_uhpd7h1gg.js" ></script>
+	<script>
+		var username = document.getElementById('username');
+		var time = document.getElementById('time');
+		var lca = document.getElementById('location');
+		var query = decodeURI(window.location.search);//获取当前路径？后的字符串  并解码
+		
+		var list = query.split("&");
+		console.log(list)
+
+		username.innerText = list[0].split("=")[1] + " (" + list[1].split("=")[1] + ")";
+		
+		
+		var date = new Date();
+		
+		
+		time.innerText = date.toLocaleDateString() + " 至 " + date.toLocaleDateString();
+		lca.innerText = list[6].split("=")[1];
+		
+		
+		function up()
+		{
+			console.log(list)
+			var username= list[0].split("=")[1] + "-(" + list[1].split("=")[1] + ")";
+			var xueyuan = list[2].split("=")[1];
+			var zhuanye = list[3].split("=")[1];
+			var time1 = list[4].split("=")[1];
+			var time2 = list[5].split("=")[1];
+			var liyou = list[6].split("=")[1];
+			var quxiang = list[7].split("=")[1];
+			
+			var to = username + "\\" + xueyuan + "\\" + zhuanye + "\\" + time1 + "\\" + time2 + "\\" + liyou + "\\" + quxiang;
+			
+			
+			document.getElementById('infro').value=to;
+			document.getElementById('infor').submit();
+		}
+		
+	</script>
+
+</html>
