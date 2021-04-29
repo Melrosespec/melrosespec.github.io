@@ -95,6 +95,11 @@
     background: #409eff
 }
 
+.dx-btn_primary1 {
+    color: #fff;
+    background: #a0a0a1
+}
+
 .dx-btn_primary.dx-btn_active,.dx-btn_primary:active {
     background: rgba(64,158,255,.8);
     color: #fff
@@ -1158,17 +1163,17 @@
 }
 
 .spinner[data-v-d4d5c34c] {
-    padding: .64rem 0;
+    padding: .35rem 0;
     height: 1.066667rem;
     margin: 0
 }
 
 .spinner>div[data-v-d4d5c34c] {
-    height: .533333rem;
-    width: .32rem;
-    margin: .026667rem;
+    height: .45rem;
+    width: .22rem;
+    margin: -2px;
     display: inline-block;
-    animation: rectScale-data-v-d4d5c34c 1.4s ease infinite
+    animation: rectScale-data-v-d4d5c34c 1.0s ease infinite
 }
 
 .spinner>div[data-v-d4d5c34c]:first-of-type {
@@ -1213,7 +1218,8 @@
     }
 
     25% {
-        transform: scaleY(2)
+        transform: scaleY(2.5);
+        /* transform: scaleX(0.8) */
     }
 }
 
@@ -1223,7 +1229,8 @@
     }
 
     25% {
-        transform: scaleY(2)
+        transform: scaleY(2.5);
+        /* transform: scaleX(0.8) */
     }
 }
 
@@ -1233,7 +1240,8 @@
     }
 
     25% {
-        transform: scaleY(2)
+        transform: scale(2.5);
+        /* transform: scaleX(0.8) */
     }
 }
 
@@ -1243,7 +1251,8 @@
     }
 
     25% {
-        transform: scaleY(2)
+        transform: scale(1, 2.5);
+        /* transform: scaleX(0.8) */
     }
 }
 
